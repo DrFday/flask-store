@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+  <h3>Purchase History</h3>
+  <ul class="list-group">
+    {% for h in history %}
+      <li class="list-group-item">
+        {{ h.title }}
+        <a href="/download/{{ h.file }}" class="btn btn-sm btn-primary float-end">Download</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

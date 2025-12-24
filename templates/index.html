@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+  <div class="row">
+    {% for b in books %}
+    <div class="col-md-4 mb-4">
+      <div class="card shadow">
+        <img src="/static/images/{{ b.cover }}" class="card-img-top">
+        <div class="card-body text-center">
+          <h5>{{ b.title }}</h5>
+          <p>${{ b.price }}</p>
+
+          {% if b.id in owned_ids %}
+            <button class="btn btn-success w-100" disabled> Owned </button>
+          {% elif b.id in cart_ids %}
+            <a href="/cart" class="btn btn-warning w-100"> Already in Cart </a>
+          {% else %}
+            <a href="/add/{{ b.id }}" class="btn btn-primary w-100"> Add to Cart </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
