@@ -25,8 +25,9 @@ if not os.path.exists(USERS_FILE):
     with open(USERS_FILE, "w") as f:
         json.dump([], f)
 
-with open(HISTORY_FILE, "r") as f:
-    history = json.load(f)
+if not os.path.exists(HISTORY_FILE):
+    with open(HISTORY_FILE, "w") as f:
+        json.dump([], f)
 
 @app.route("/")
 def index():
