@@ -190,4 +190,4 @@ def download(filename):
     return send_from_directory("static/downloads", filename, as_attachment=True)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
