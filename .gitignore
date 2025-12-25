@@ -4,4 +4,4 @@ __pycache__/
 .env
 users.json
 purchase_history.json
-downloads/
+downloads/*
